@@ -37,7 +37,7 @@
     <div style="text-align: center;">
       <div class="spinner" style="margin: 0 auto 20px;"></div>
       <h2 style="font-size: 24px; margin-bottom: 10px;">Carregando Sistema...</h2>
-      <p style="font-size: 14px; opacity: 0.9;">v4.0 - Google Drive Sync</p>
+      <p style="font-size: 14px; opacity: 0.9;">v4.1 - CORRIGIDO</p>
     </div>
   </div>
   
@@ -5784,7 +5784,7 @@ const App = () => {
     gapi.load('client:auth2', () => {
       gapi.client.init({
         apiKey: 'AIzaSyBvZlZBGg_pA8r5hqJZqXqXqXqXqXqXqXq', // Placeholder - usuário precisa substituir
-        clientId: '581260730060-70s0s46usunjg3nqdc84u7ivhaecu5qe.apps.googleusercontent.com', // Placeholder - usuário precisa substituir
+        clientId: 'SEU_CLIENT_ID_AQUI.apps.googleusercontent.com', // Placeholder - usuário precisa substituir
         discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
         scope: 'https://www.googleapis.com/auth/drive.file'
       }).then(() => {
@@ -5969,7 +5969,7 @@ const App = () => {
       
       return () => clearTimeout(timeoutId);
     }
-  }, [savedFormulas, myFormulas, prescritores, prescription, magistralConfig, patientInfo]);
+  }, [myFormulas, prescritores, prescription, magistralConfig, patientInfo]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50 p-6">
@@ -8460,10 +8460,11 @@ const App = () => {
       setTimeout(() => {
         const loader = document.getElementById('loading');
         if (loader) loader.remove();
-        console.log('✅ Sistema v4.0 - Google Drive Sync');
+        console.log('✅ Sistema v4.1 CORRIGIDO - Google Drive Sync');
       }, 500);
     } catch (error) {
       console.error('Erro:', error);
+      document.getElementById('loading').innerHTML = '<div style="text-align: center; color: white;"><h2>❌ Erro ao carregar</h2><p>' + error.message + '</p></div>';
     }
   </script>
 </body>
